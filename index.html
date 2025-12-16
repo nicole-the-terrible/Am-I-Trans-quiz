@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Am I Trans Quiz🏳️‍⚧️</title>
+  <style>
+    :root {
+      --bg: #f2f2f2;
+      --card: #ffffff;
+      --text: #000000;
+      --button: #4CAF50;
+    }
+    body.night {
+      --bg: #0f172a;
+      --card: #1e293b;
+      --text: #e5e7eb;
+      --button: #6366f1;
+    }
+    body {
+      font-family: Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      transition: background 0.3s, color 0.3s;
+    }
+    .quiz-box {
+      background: var(--card);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+      text-align: center;
+      max-width: 420px;
+      width: 100%;
+    }
+    h1 {
+      margin-bottom: 10px;
+    }
+    .count {
+      font-size: 14px;
+      opacity: 0.8;
+      margin-bottom: 20px;
+    }
+    button {
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      background-color: var(--button);
+      color: white;
+      margin: 8px;
+    }
+    button:hover {
+      filter: brightness(0.9);
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .toggle {
+      font-size: 14px;
+      cursor: pointer;
+      margin-top: 10px;
+      text-decoration: underline;
+      opacity: 0.8;
+    }
+  </style>
+</head>
+<body>
+  <div class="quiz-box">
+    <h1>Am I Trans Quiz🏳️‍⚧️</h1>
+    <div class="count" id="count"></div>
+    <p>Click start to find out the truth about your gender.</p>
+    <button onclick="startQuiz()">Start</button>
+    <div class="result" id="result"></div>
+    <div class="toggle" onclick="toggleNight()">Toggle Night Mode 🌙</div>
+  </div>
+
+  <script>
+    const results = [
+      "Yeah, probably, since you're asking",
+      "Signs point to yes because why else you're on this site",
+      "The council has spoken: you're trans due to well no shit you're on am i trans quiz"
+    ];
+
+    function startQuiz() {
+      const randomResult = results[Math.floor(Math.random() * results.length)];
+      document.getElementById('result').textContent = randomResult;
+    }
+
+    function toggleNight() {
+      document.body.classList.toggle('night');
+    }
+
+    function randomUserCount() {
+      const users = Math.floor(Math.random() * 9000) + 1000;
+      document.getElementById('count').textContent = users.toLocaleString() + " sleepy users have taken this quiz";
+    }
+
+    randomUserCount();
+  </script>
+</body>
+</html>
